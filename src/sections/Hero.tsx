@@ -60,7 +60,7 @@ export function Hero() {
           </div>
           
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] leading-[1.05] font-bold text-white mb-8 tracking-tight">
-            Разрабатываю <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">сайты, CRM</span><br className="hidden md:block" /> и веб-системы
+            Разрабатываем <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">сайты, CRM</span><br className="hidden md:block" /> и веб-системы
           </h1>
           <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
             {siteData.hero.subheadline}
@@ -73,7 +73,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className="px-10 py-5 bg-white text-navy font-bold rounded-full hover:bg-slate-200 transition-transform active:scale-95 shadow-xl"
             >
-              Обсудить проект
+              Написать нам
             </a>
             
             <a 
