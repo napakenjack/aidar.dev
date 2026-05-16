@@ -52,9 +52,9 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3 relative z-50">
             <div className="w-8 h-8 bg-blue-700 rounded-sm transform rotate-45 flex items-center justify-center">
-              <span className="text-white font-bold text-xs -rotate-45">DS</span>
+              <span className="text-white font-bold text-xs -rotate-45">ADS</span>
             </div>
-            <span className="text-lg font-semibold tracking-tight text-white hidden sm:block">DIGITAL SPECIALIST</span>
+            <span className="text-lg font-semibold tracking-tight text-white hidden sm:block">Aidar Dev Studio</span>
           </div>
 
           {/* Desktop Nav */}
