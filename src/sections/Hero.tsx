@@ -56,11 +56,11 @@ export function Hero() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] uppercase tracking-[0.2em] font-bold mb-8">
-            Digital Solutions Architecture
+            Архитектура цифровых решений
           </div>
           
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] leading-[1.05] font-bold text-white mb-8 tracking-tight">
-            Разрабатываю <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">сайты, CRM</span><br className="hidden md:block" /> и веб-системы
+            Создание <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">сайтов, CRM</span><br className="hidden md:block" /> и веб-систем
           </h1>
           <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
             {siteData.hero.subheadline}
@@ -73,7 +73,7 @@ export function Hero() {
               rel="noopener noreferrer"
               className="px-10 py-5 bg-white text-navy font-bold rounded-full hover:bg-slate-200 transition-transform active:scale-95 shadow-xl"
             >
-              Обсудить проект
+              Заказать проект
             </a>
             
             <a 
