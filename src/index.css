@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #020617;
+  --color-navy-light: #0f172a;
+  --color-accent-blue: #3b82f6;
+  --color-accent-glow: #1d4ed8;
+  --color-glass: rgba(15, 23, 42, 0.5);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Manrope", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-navy);
+    color: #F8FAFC;
+  }
+  
+  body {
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--color-navy);
+    color: #F8FAFC;
+    cursor: none; /* Custom cursor */
+  }
+
+  /* Fallback scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-navy);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1E293B;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(0, 85, 255, 0.4);
+  }
+  
+  .glass-panel {
+    background: var(--color-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-glass-border);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 30px rgba(0, 163, 255, 0.15);
+    border-color: rgba(0, 163, 255, 0.3);
+  }
+}
