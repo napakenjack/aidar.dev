@@ -6,7 +6,7 @@ export function CursorLightTrail() {
   const [isHovering, setIsHovering] = useState(false);
 
   // Smooth springs for cursor position
-  const springConfig = { damping: 1, stiffness: 150, mass: 0.5 };
+  const springConfig = { damping: 40, stiffness: 150, mass: 0.5 };
   const cursorX = useSpring(-100, springConfig);
   const cursorY = useSpring(-100, springConfig);
   
@@ -20,8 +20,8 @@ export function CursorLightTrail() {
     
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-      cursorX.set(e.clientX - 6);
-      cursorY.set(e.clientY - 6);
+      cursorX.set(e.clientX - 1);
+      cursorY.set(e.clientY - 1);
       trailX.set(e.clientX - 150);
       trailY.set(e.clientY - 150);
     };
