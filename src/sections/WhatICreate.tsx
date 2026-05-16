@@ -10,7 +10,7 @@ export function WhatICreate() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-20">
           <h2 className="text-3xl md:text-5xl font-display font-medium text-white mb-6">
-            Создаю цифровые инструменты <br className="hidden md:block"/>под ваш бизнес
+            Создаем цифровые инструменты <br className="hidden md:block"/>под ваш бизнес
           </h2>
         </div>
 
