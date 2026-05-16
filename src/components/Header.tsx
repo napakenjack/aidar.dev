@@ -54,7 +54,7 @@ export function Header() {
             <div className="w-8 h-8 bg-blue-700 rounded-sm transform rotate-45 flex items-center justify-center">
               <span className="text-white font-bold text-xs -rotate-45">ADS</span>
             </div>
-            <span className="text-lg font-semibold tracking-tight text-white hidden sm:block">Aidar Dev Studio</span>
+            <span className="text-lg font-semibold tracking-tight text-white hidden sm:block">AIdar Dev Studio</span>
           </div>
 
           {/* Desktop Nav */}

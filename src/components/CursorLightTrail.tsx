@@ -1,31 +1,32 @@
 import { useEffect, useState } from "react";
-import { motion, useSpring } from "motion/react";
+import { motion, useMotionValue, useSpring } from "motion/react";
 
 export function CursorLightTrail() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
-  const springConfig = { damping: 30, stiffness: 400, mass: 0.2 };
-  const cursorX = useSpring(-100, springConfig);
-  const cursorY = useSpring(-100, springConfig);
-
-  const trailConfig = { damping: 35, stiffness: 250, mass: 0.5 };
+  // Instantaneous motion values for primary cursor
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+  
+  // Fast spring for the trailing glow, but mostly following closely
+  const trailConfig = { damping: 30, stiffness: 400, mass: 0.5 };
   const trailX = useSpring(-100, trailConfig);
   const trailY = useSpring(-100, trailConfig);
 
   useEffect(() => {
     const defaultCursor = document.body.style.cursor;
-
+    
     const updateMousePosition = (e: MouseEvent) => {
-      cursorX.set(e.clientX - 1);
-      cursorY.set(e.clientY - 1);
-
+      setMousePosition({ x: e.clientX, y: e.clientY });
+      cursorX.set(e.clientX - 6);
+      cursorY.set(e.clientY - 6);
       trailX.set(e.clientX - 150);
       trailY.set(e.clientY - 150);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-
       if (
         target.tagName.toLowerCase() === "a" ||
         target.tagName.toLowerCase() === "button" ||
@@ -49,15 +50,14 @@ export function CursorLightTrail() {
     };
   }, [cursorX, cursorY, trailX, trailY]);
 
-  if (
-    typeof window !== "undefined" &&
-    window.matchMedia("(max-width: 768px)").matches
-  ) {
+  // Hide cursor on touch devices
+  if (typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches) {
     return null;
   }
 
   return (
     <>
+      {/* Primary sharp dot */}
       <motion.div
         className="fixed top-0 left-0 w-[12px] h-[12px] rounded-full bg-white z-[9999] pointer-events-none mix-blend-difference"
         style={{
@@ -66,14 +66,14 @@ export function CursorLightTrail() {
           scale: isHovering ? 2 : 1,
         }}
       />
-
+      
+      {/* Navy blue atmospheric glow trail */}
       <motion.div
         className="fixed top-0 left-0 w-[300px] h-[300px] rounded-full pointer-events-none z-[9998]"
         style={{
           x: trailX,
           y: trailY,
-          background:
-            "radial-gradient(circle, rgba(0, 100, 255, 0.15) 0%, rgba(0, 50, 150, 0.05) 40%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0, 100, 255, 0.15) 0%, rgba(0, 50, 150, 0.05) 40%, transparent 70%)",
           filter: "blur(20px)",
           scale: isHovering ? 1.5 : 1,
         }}

@@ -12,7 +12,7 @@ export function FinalCTA() {
           Хотите сайт, CRM или <br className="hidden md:block" />веб-систему под ваш бизнес?
         </h2>
         <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-          Напишите мне — я предложу структуру проекта под вашу нишу и покажу, как можно улучшить процесс заявок, клиентов и продаж.
+          Напишите нам — мы предложим структуру проекта под вашу нишу и покажем, как можно улучшить процесс заявок, клиентов и продаж.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

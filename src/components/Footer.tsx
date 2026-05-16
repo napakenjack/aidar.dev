@@ -8,12 +8,12 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-blue-700 rounded-sm transform rotate-45 flex items-center justify-center">
-                <span className="text-white font-bold text-xs -rotate-45">DS</span>
+                <span className="text-white font-bold text-xs -rotate-45">ADS</span>
               </div>
-              <span className="font-semibold tracking-tight text-white hidden sm:block">DIGITAL SPECIALIST</span>
+              <span className="font-semibold tracking-tight text-white hidden sm:block">AIdar Dev Studio</span>
             </div>
             <p className="text-slate-400 text-sm max-w-sm">
-              Разрабатываю сайты, CRM и веб-системы для бизнеса, который заботится о конверсии и контроле.
+              Разрабатываем сайты, CRM и веб-системы для бизнеса, который заботится о конверсии и контроле.
             </p>
           </div>
           
@@ -27,7 +27,7 @@ export function Footer() {
               WhatsApp: +7 775 401 5204
             </a>
             <div className="text-slate-500 text-sm">
-              &copy; {new Date().getFullYear()} Digital System. All rights reserved.
+              &copy; {new Date().getFullYear()} AIdar Dev Studio. All rights reserved.
             </div>
           </div>
         </div>
