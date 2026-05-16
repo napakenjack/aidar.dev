@@ -6,7 +6,7 @@ export function CursorLightTrail() {
   const [isHovering, setIsHovering] = useState(false);
 
   // Smooth springs for cursor position
-  const springConfig = { damping: 25, stiffness: 150, mass: 0.5 };
+  const springConfig = { damping: 1, stiffness: 150, mass: 0.5 };
   const cursorX = useSpring(-100, springConfig);
   const cursorY = useSpring(-100, springConfig);
   
