@@ -14,7 +14,7 @@ export function Header() {
   const background = useTransform(
     scrollY,
     [0, 50],
-    ["rgba(10, 15, 26, 0)", "rgba(10, 15, 26, 0.85)"]
+    ["rgba(10, 15, 26, 0)", "rgba(255, 255, 255, 0.85)"]
   );
   
   const backdropFilter = useTransform(
