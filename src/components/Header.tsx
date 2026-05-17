@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll } from "motion/react";
 import { CONTACT_WHATSAPP, siteData } from "../data/content";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "../hooks/useTheme";
@@ -9,19 +9,6 @@ export function Header() {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Background blur and transparency based on scroll
-  const background = useTransform(
-    scrollY,
-    [0, 50],
-    ["rgba(10, 15, 26, 0)", "rgba(255, 255, 255, 0.85)"]
-  );
-  
-  const backdropFilter = useTransform(
-    scrollY,
-    [0, 50],
-    ["blur(0px)", "blur(12px)"]
-  );
 
   useEffect(() => {
     return scrollY.on("change", (latest) => {
@@ -45,10 +32,11 @@ export function Header() {
 
   return (
     <>
-      <motion.header
-        style={{ background, backdropFilter }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-          isScrolled ? "border-b border-border-subtle" : "border-b border-transparent"
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled 
+            ? "bg-primary/85 backdrop-blur-xl border-b border-border-subtle" 
+            : "bg-transparent border-b border-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -107,7 +95,7 @@ export function Header() {
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu Overlay */}
       <motion.div

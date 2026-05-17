@@ -5,10 +5,9 @@ export function useTheme() {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme');
       if (saved) return saved === 'dark';
-      return document.documentElement.classList.contains('dark') || 
-             window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return false; // По умолчанию светлая тема
     }
-    return true;
+    return false;
   });
 
   useEffect(() => {
