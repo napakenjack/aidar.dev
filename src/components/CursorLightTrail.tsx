@@ -1,28 +1,36 @@
 import { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
+import { motion, useMotionValue } from "motion/react";
 
 export function CursorLightTrail() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
-  // Instantaneous motion values for primary cursor
+  // Instantaneous motion values
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
   
-  // Fast spring for the trailing glow, but mostly following closely
-  const trailConfig = { damping: 30, stiffness: 400, mass: 0.5 };
-  const trailX = useSpring(-100, trailConfig);
-  const trailY = useSpring(-100, trailConfig);
+  const trailX = useMotionValue(-100);
+  const trailY = useMotionValue(-100);
 
   useEffect(() => {
     const defaultCursor = document.body.style.cursor;
     
+    // Use requestAnimationFrame for smoother but instant updates 
+    let rafId: number;
+    let targetX = -100;
+    let targetY = -100;
+
     const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      cursorX.set(e.clientX - 6);
-      cursorY.set(e.clientY - 6);
-      trailX.set(e.clientX - 150);
-      trailY.set(e.clientY - 150);
+      targetX = e.clientX;
+      targetY = e.clientY;
+      
+      // Update primary dot immediately
+      cursorX.set(targetX - 6);
+      cursorY.set(targetY - 6);
+      
+      // Update trail smoothly but quickly via native lerping
+      // Actually we just set it instantly since user requested 'обычная скорость'
+      trailX.set(targetX - 150);
+      trailY.set(targetY - 150);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -57,7 +65,6 @@ export function CursorLightTrail() {
 
   return (
     <>
-      {/* Primary sharp dot */}
       <motion.div
         className="fixed top-0 left-0 w-[12px] h-[12px] rounded-full bg-white z-[9999] pointer-events-none mix-blend-difference"
         style={{
@@ -65,9 +72,10 @@ export function CursorLightTrail() {
           y: cursorY,
           scale: isHovering ? 2 : 1,
         }}
+        animate={{ scale: isHovering ? 2 : 1 }}
+        transition={{ duration: 0.2 }}
       />
       
-      {/* Navy blue atmospheric glow trail */}
       <motion.div
         className="fixed top-0 left-0 w-[300px] h-[300px] rounded-full pointer-events-none z-[9998]"
         style={{
@@ -75,8 +83,9 @@ export function CursorLightTrail() {
           y: trailY,
           background: "radial-gradient(circle, rgba(0, 100, 255, 0.15) 0%, rgba(0, 50, 150, 0.05) 40%, transparent 70%)",
           filter: "blur(20px)",
-          scale: isHovering ? 1.5 : 1,
         }}
+        animate={{ scale: isHovering ? 1.5 : 1 }}
+        transition={{ duration: 0.2 }}
       />
     </>
   );

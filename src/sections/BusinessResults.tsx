@@ -3,10 +3,10 @@ import { siteData } from "../data/content";
 
 export function BusinessResults() {
   return (
-    <SectionTransition className="py-24 md:py-32 bg-navy relative z-10 border-t border-white/5">
+    <SectionTransition className="py-24 md:py-32 bg-primary relative z-10 border-t border-border-subtle">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-medium text-white">
+          <h2 className="text-3xl md:text-5xl font-display font-medium text-main">
             Что получает бизнес после запуска
           </h2>
         </div>
@@ -15,9 +15,9 @@ export function BusinessResults() {
           {siteData.results.map((result, i) => (
             <div 
               key={i}
-              className="p-8 border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition-colors flex items-center justify-center text-center rounded-2xl min-h-[160px]"
+              className="p-8 border border-border-subtle bg-white/[0.02] hover:bg-white/[0.05] transition-colors flex items-center justify-center text-center rounded-2xl min-h-[160px]"
             >
-              <p className="text-lg text-slate-300 font-medium">{result}</p>
+              <p className="text-lg text-muted font-medium">{result}</p>
             </div>
           ))}
         </div>

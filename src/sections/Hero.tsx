@@ -26,7 +26,7 @@ export function Hero() {
         style={{ y: backgroundY }}
         className="absolute inset-0 z-0 select-none pointer-events-none"
       >
-        <div className="absolute inset-0 bg-navy/80 z-10" />
+        <div className="absolute inset-0 bg-primary/80 z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/30 via-transparent to-navy/90 z-10" />
         <img 
           src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2500" 
@@ -59,10 +59,10 @@ export function Hero() {
             Digital Solutions Architecture
           </div>
           
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] leading-[1.05] font-bold text-white mb-8 tracking-tight">
-            Разрабатываем <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">сайты, CRM</span><br className="hidden md:block" /> и веб-системы
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5rem] leading-[1.05] font-bold text-main mb-8 tracking-tight">
+            Разрабатываем сайты <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">CRM системы</span><br className="hidden md:block" /> и веб-системы
           </h1>
-          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-lg md:text-xl text-sub max-w-3xl mx-auto mb-12 leading-relaxed">
             {siteData.hero.subheadline}
           </p>
 
@@ -73,12 +73,12 @@ export function Hero() {
               rel="noopener noreferrer"
               className="px-10 py-5 bg-white text-navy font-bold rounded-full hover:bg-slate-200 transition-transform active:scale-95 shadow-xl"
             >
-              Написать нам
+              Обсудить проект
             </a>
             
             <a 
               href="#works"
-              className="px-10 py-5 bg-navy-light border border-white/10 text-white font-bold rounded-full hover:bg-slate-800 transition-transform active:scale-95"
+              className="px-10 py-5 bg-secondary border border-border-medium text-main font-bold rounded-full hover:bg-slate-800 transition-transform active:scale-95"
             >
               Посмотреть работы
             </a>
@@ -91,7 +91,7 @@ export function Hero() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + (idx * 0.1), duration: 0.5 }}
-                className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs text-slate-400 uppercase tracking-widest font-medium"
+                className="px-4 py-1.5 rounded-full border border-border-medium bg-fg-subtle text-xs text-sub uppercase tracking-widest font-medium"
               >
                 {label}
               </motion.span>

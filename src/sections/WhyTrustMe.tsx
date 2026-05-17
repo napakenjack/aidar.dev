@@ -3,14 +3,14 @@ import { siteData } from "../data/content";
 
 export function WhyTrustMe() {
   return (
-    <SectionTransition className="py-24 md:py-32 bg-navy-light relative z-10 border-t border-white/5">
+    <SectionTransition className="py-24 md:py-32 bg-secondary relative z-10 border-t border-border-subtle">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-3xl md:text-5xl font-display font-medium text-white mb-8 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-display font-medium text-main mb-8 leading-tight">
               Разработка не только визуала, но и <span className="text-blue-400">полной логики продукта</span>
             </h2>
-            <p className="text-lg text-slate-400 leading-relaxed">
+            <p className="text-lg text-sub leading-relaxed">
               Мы не просто рисуем красивые экраны. Мы продумываем, как пользователь отправляет заявку, как менеджер её обрабатывает и как владелец бизнеса видит результат.
             </p>
           </div>
@@ -19,9 +19,9 @@ export function WhyTrustMe() {
             {siteData.trust.skills.map((skill, i) => (
               <div 
                 key={i} 
-                className="p-6 border border-white/5 bg-white/5 rounded-2xl flex items-center hover:bg-white/10 transition-colors"
+                className="p-6 border border-border-subtle bg-fg-subtle rounded-2xl flex items-center hover:bg-fg-medium transition-colors"
               >
-                <span className="text-slate-300 font-medium">{skill}</span>
+                <span className="text-muted font-medium">{skill}</span>
               </div>
             ))}
           </div>

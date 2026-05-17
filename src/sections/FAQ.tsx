@@ -8,10 +8,10 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <SectionTransition id="faq" className="py-24 md:py-32 bg-navy relative z-10 border-t border-white/5">
+    <SectionTransition id="faq" className="py-24 md:py-32 bg-primary relative z-10 border-t border-border-subtle">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-medium text-white">Частые вопросы</h2>
+          <h2 className="text-3xl md:text-5xl font-display font-medium text-main">Частые вопросы</h2>
         </div>
 
         <div className="space-y-4">
@@ -20,17 +20,17 @@ export function FAQ() {
             return (
               <div 
                 key={i} 
-                className={`border rounded-2xl transition-colors overflow-hidden ${isOpen ? 'border-blue-500/30 bg-blue-500/5' : 'border-white/10 bg-white/5'}`}
+                className={`border rounded-2xl transition-colors overflow-hidden ${isOpen ? 'border-blue-500/30 bg-blue-500/5' : 'border-border-medium bg-fg-subtle'}`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
                 >
-                  <span className="text-lg font-medium text-white pr-8">{item.q}</span>
+                  <span className="text-lg font-medium text-main pr-8">{item.q}</span>
                   {isOpen ? (
                     <Minus className="w-5 h-5 text-blue-400 shrink-0" />
                   ) : (
-                    <Plus className="w-5 h-5 text-slate-400 shrink-0" />
+                    <Plus className="w-5 h-5 text-sub shrink-0" />
                   )}
                 </button>
                 
@@ -42,7 +42,7 @@ export function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="p-6 pt-0 text-slate-400 leading-relaxed">
+                      <div className="p-6 pt-0 text-sub leading-relaxed">
                         {item.a}
                       </div>
                     </motion.div>
